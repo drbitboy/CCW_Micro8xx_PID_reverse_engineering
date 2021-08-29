@@ -35,7 +35,9 @@ The images under the images subdirectory of this repository summarize the experi
 
 ### Reverse engineering the proportional action of the CCW PID
 
-These two images show trends of PV and CV for proportional-only experiments on the PID.  The two cases demonstrate that the .Kc member of the PID_GAINS object is controller gain, in units of dCV/dPV..
+These two images show trends of PV and CV for proportional-only experiments on the PID.  The integral action was disabled by assigning a large value toe .Ti; the derivative action was disabled by assigning 0 to the values of .Td and .FC.
+
+The two cases demonstrate that the .Kc member of the PID_GAINS object is controller gain, in units of dCV/dPV..
 
 ![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalOnly_Kc0.10.png)
 
@@ -43,7 +45,9 @@ These two images show trends of PV and CV for proportional-only experiments on t
 
 ### Reverse engineering the integral action of the CCW PID
 
-These two images show trends of PV and CV for proportional-integral experiments on the PID.  The two cases demonstrate that the .Ti member of the PID_GAINS object is integral time, and that the CCW PID uses the "Dependent Gains" form of the PID formula cf. https://literature.rockwellautomation.com/idc/groups/literature/documents/wp/logix-wp008_-en-p.pdf.
+These two images show trends of PV and CV for proportional-integral experiments on the PID.  The derivative action was disabled by assigning 0 to the values of .Td and .FC.
+
+The two cases demonstrate that the .Ti member of the PID_GAINS object is integral time, and that the CCW PID uses the "Dependent Gains" form of the PID formula cf. https://literature.rockwellautomation.com/idc/groups/literature/documents/wp/logix-wp008_-en-p.pdf.
 
 ![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalIntegral_Kc0.10_Ti05.0.png)
 
@@ -51,7 +55,7 @@ These two images show trends of PV and CV for proportional-integral experiments 
 
 ### Reverse engineering the derivative action of the CCW PID
 
-These images show trends of PV and CV for proportional-derivative experiments on the PID.  
+These images show trends of PV and CV for proportional-derivative experiments on the PID.  The integral action was disabled by assigning a large value toe .Ti.
 
 The first two images demonstrate that .FC is derivative time; .Td is set to 0.001 which effectively disables the CV output filter.  Both .Kc and .FC are varied, and the results further confirm that the CCW PID uses the Dependent Gains formula.
 
