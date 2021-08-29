@@ -27,25 +27,47 @@ The program under the CCWcode/ subdirectory of this repository contains the Conn
 
 There is no feedback from CV to PV; PV only changes when the user changes it manually; it could be said that the user making those changes is the process.  The most typical user change is a step change in PV.
 
-The images under the images subdirectory of this repository summarize the experiments used to reverse engineer the CCW PID instruction and determine its behavior.
+The images under the images subdirectory of this repository summarize the experiments used to reverse engineer the CCW PID instruction and determine its behavior.  Each image comprises
 
+* a time trend plot of data from an experiment,
+* a display of the tuning parameters in tag pidgains
+* annotation of CV changes during the experiment
 
-![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.025_Td2.67_FC4.0.png)
+### Reverse engineering the proportional action of the CCW PID
 
-![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.05_Td2.0_FC2.0.png)
+These two images show trends of PV and CV for proportional-only experiments on the PID.  The two cases demonstrate that the .Kc member of the PID_GAINS object is controller gain, in units of dCV/dPV..
 
-![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.10_Td0.001_FC1.0.png)
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalOnly_Kc0.10.png)
 
-![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.10_Td1.0_FC1.0.png)
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalOnly_Kc0.15.png)
 
-![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.10_Td2.0_FC1.0.png)
+### Reverse engineering the integral action of the CCW PID
 
-![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.15_Td0.001_FC2.0.png)
+These two images show trends of PV and CV for proportional-integral experiments on the PID.  The two cases demonstrate that the .Ti member of the PID_GAINS object is integral time, and that the CCW PID uses the "Dependent Gains" form of the PID formula cf. https://literature.rockwellautomation.com/idc/groups/literature/documents/wp/logix-wp008_-en-p.pdf.
 
 ![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalIntegral_Kc0.10_Ti05.0.png)
 
 ![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalIntegral_Kc0.10_Ti10.0.png)
 
-![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalOnly_Kc0.10.png)
+### Reverse engineering the derivative action of the CCW PID
 
-![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalOnly_Kc0.15.png)
+These images show trends of PV and CV for proportional-derivative experiments on the PID.  
+
+The first two images demonstrate that .FC is derivative time; .Td is set to 0.001 which effectively disables the CV output filter.  Both .Kc and .FC are varied, and the results further confirm that the CCW PID uses the Dependent Gains formula.
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.10_Td0.001_FC1.0.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.15_Td0.001_FC2.0.png)
+
+The last four images demonstrat that the output filter time constant is
+
+* directly proportional to .Td
+* inversely proportional to .FC
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.10_Td1.0_FC1.0.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.10_Td2.0_FC1.0.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.05_Td2.0_FC2.0.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.025_Td2.67_FC4.0.png)
