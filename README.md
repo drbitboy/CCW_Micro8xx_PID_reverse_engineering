@@ -14,8 +14,8 @@ The [PID] instruction in CCW for Micro8xx PIC uses the Dependent Gains form of a
 
 Note specifically that
 
-* the .FC member of PID_GAINS is not the filter constant that the CCW documentaiont claims it to be;
-* the .Td member of PID_GAINS is not the derivative time that the CCW documentaiont claims it to be.
+* the .FC member of PID_GAINS is not the filter constant that the CCW documentation claims it to be;
+* the .Td member of PID_GAINS is not the derivative time that the CCW documentation claims it to be.
 
 ## Details
 
