@@ -27,4 +27,25 @@ The program under the CCWcode/ subdirectory of this repository contains the Conn
 
 There is no feedback from CV to PV; PV only changes when the user changes it manually; it could be said that the user making those changes is the process.  The most typical user change is a step change in PV.
 
-The images under the images subdirectory of this repository summarize the experiments used to 
+The images under the images subdirectory of this repository summarize the experiments used to reverse engineer the CCW PID instruction and determine its behavior.
+
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.025_Td2.67_FC4.0.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.05_Td2.0_FC2.0.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.10_Td0.001_FC1.0.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.10_Td1.0_FC1.0.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.10_Td2.0_FC1.0.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.15_Td0.001_FC2.0.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalIntegral_Kc0.10_Ti05.0.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalIntegral_Kc0.10_Ti10.0.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalOnly_Kc0.10.png)
+
+![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalOnly_Kc0.15.png)
