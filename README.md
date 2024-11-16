@@ -63,7 +63,7 @@ The first two images demonstrate that .FC is derivative time; .Td is set to 0.00
 
 ![](https://github.com/drbitboy/CCW_Micro8xx_PID_reverse_engineering/raw/main/images/ccw_pid_ProportionalDerivative_Kc0.15_Td0.001_FC2.0.png)
 
-The last four images demonstrat that the output filter time constant is
+The last four images demonstrate that the output filter time constant is
 
 * directly proportional to .Td
 * inversely proportional to .FC
